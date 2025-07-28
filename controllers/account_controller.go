@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"fmt"
 	"internal-transfers/database"
 	"internal-transfers/models"
 	"net/http"
@@ -10,6 +11,7 @@ import (
 )
 
 func CreateAccount(c *gin.Context) {
+	fmt.Println("create account")
 	var acc models.Account
 	if err := c.ShouldBindJSON(&acc); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid request"})
